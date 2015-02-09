@@ -7,17 +7,17 @@
     };
     this.callback = callback;
     this.config = $.extend(defaults, options);
-    this.awesomeBands = [
-      'Creed',
-      'Godsmack',
-      'Hoobastank',
-      'Insane Clown Posse',
-      'Kid Rock',
-      'Limp Bizkit',
-      'Mudvayne',
-      'Nickelback',
-      'Puddle Of Mudd',
-      'Staind'
+    this.hardcoreVeggies = [
+      'Adzuki Beans',
+      'Asparagus',
+      'Black-eyed Peas',
+      'Brussels Sprouts',
+      'Carrots',
+      'Collard Greens',
+      'Parsnips',
+      'Rhubarb',
+      'Yams',
+      'Watercress'
     ];
   };
 
@@ -26,14 +26,14 @@
   };
 
   Poller.prototype.getData = function() {
-    var awesomeBand,
+    var hardcoreVeg,
         i,
         len,
         results = [];
-    for (i = 0, len = this.awesomeBands.length; i < len; i++) {
-      awesomeBand = this.awesomeBands[i];
+    for (i = 0, len = this.hardcoreVeggies.length; i < len; i++) {
+      hardcoreVeg = this.hardcoreVeggies[i];
       results.push({
-        name: awesomeBand,
+        name: hardcoreVeg,
         count: this.getRandomNumber(0, 2000)
       });
     }
@@ -64,8 +64,8 @@
     return this;
   };
 
-  if (window.massrel == null) {
-    window.massrel = {
+  if (window.spredfast == null) {
+    window.spredfast = {
       Poller: Poller
     };
   }
