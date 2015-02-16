@@ -18,7 +18,7 @@ and a [PSD](Leaderboard.psd) to use as a mockup.
 
 You will build a "Hardcore Veggies" leaderboard, which is a list of the top five hardcore vegetable names paired with the number of times that those vegetables have been mentioned on Twitter or Facebook.
 
-For simplicity's sake, we've stubbed out an API interface and polling functionality within a library (see [lib.js](js/lib.js)). The library provides a `Poller()` class that allows you to create a poller, set some options and provide a callback function that will be called when the poller returns data. It also has a `.start()` method that will start the poller.
+For simplicity's sake, we've stubbed out an API interface and polling functionality within a library (see [api.js](js/api.js)). The library provides a `Poller()` class that allows you to create a poller, set some options and provide a callback function that will be called when the poller returns data. It also has a `.start()` method that will start the poller.
 
 Upon each poll, the API will send an array of objects to your callback function. Each object will contain a vegetable name and its associated count, sorted descending by count.
 
