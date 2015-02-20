@@ -26,11 +26,11 @@ The leaderboard that you build should satisfy these basic requirements:
 
 * Visually adhere to the provided [PSD](Leaderboard.psd).
 * Every 15 seconds, update the leaderboard to show the latest produce names and counts, sorted descending by count.
-* The resulting leaderboard should be a mix of both fruits and vegetables.
+* The resulting leaderboard should be a mix of both fruits and veggies.
 * **Bonus:** Animate the leaderboard update in some way (fade/dissolve, sliding, etc.).
 * **Bonus:** Make the leaderboard a responsive design that displays nicely on smaller screens.
 
-When you're finished, please send your work your Spredfast dev contact as a .zip file or (preferably) a link to a public repo on GitHub.
+When you're finished, please send your work to your Spredfast dev contact as a .zip file or (preferably) a link to a public repo on GitHub.
 
 ## Questions?
 
