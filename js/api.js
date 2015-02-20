@@ -1,47 +1,57 @@
 (function($) {
 
-  var Poller = function(options, callback) {
-    var defaults = {
-      frequency: 60,
-      limit: 10
+  var Poller = function() {
+    this.items = {
+      veggies: [
+        'Adzuki Beans',
+        'Asparagus',
+        'Black-eyed Peas',
+        'Brussels Sprouts',
+        'Carrots',
+        'Collard Greens',
+        'Parsnips',
+        'Rhubarb',
+        'Yams',
+        'Watercress'
+      ],
+      fruits: [
+        'Apricots',
+        'Blackcurrants',
+        'Cherimoya',
+        'Dates',
+        'Elderberry',
+        'Guava',
+        'Kumquat',
+        'Miracle Fruit',
+        'Purple Mangosteen',
+        'Satsuma'
+      ]
     };
-    this.callback = callback;
-    this.config = $.extend(defaults, options);
-    this.hardcoreVeggies = [
-      'Adzuki Beans',
-      'Asparagus',
-      'Black-eyed Peas',
-      'Brussels Sprouts',
-      'Carrots',
-      'Collard Greens',
-      'Parsnips',
-      'Rhubarb',
-      'Yams',
-      'Watercress'
-    ];
   };
-
+  
   Poller.prototype.getRandomNumber = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  Poller.prototype.getData = function() {
-    var hardcoreVeg,
+  Poller.prototype.getData = function(type) {
+    var item,
         i,
         len,
+        list = this.items[type] || [],
         results = [];
-    for (i = 0, len = this.hardcoreVeggies.length; i < len; i++) {
-      hardcoreVeg = this.hardcoreVeggies[i];
+    for (i = 0, len = list.length; i < len; i++) {
+      item = list[i];
       results.push({
-        name: hardcoreVeg,
+        name: item,
         count: this.getRandomNumber(0, 2000)
       });
     }
     return results;
   };
 
-  Poller.prototype.processData = function() {
-    return this.sortData(this.getData()).slice(0, this.config.limit);
+  Poller.prototype.processData = function(data, limit) {
+    var _this = this;
+    return this.sortData(data).slice(0, limit);
   };
 
   Poller.prototype.sortData = function(data) {
@@ -50,18 +60,18 @@
     });
   };
 
-  Poller.prototype.start = function() {
+  Poller.prototype.poll = function(options, cb) {
     var _this = this;
-    this.interval = setInterval((function() {
-      _this.callback(_this.processData());
-    }), this.config.frequency * 1000);
-    this.callback(this.processData());
-    return this;
-  };
+    var defaults = {
+      type: 'veggies',
+      limit: 10
+    };
+    var config = $.extend(defaults, options);
+    var callback = cb;
 
-  Poller.prototype.stop = function() {
-    clearInterval(this.interval);
-    return this;
+    setTimeout(function() {
+      callback(_this.processData(_this.getData(config.type), config.limit));
+    }, this.getRandomNumber(400, 2000));
   };
 
   if (window.spredfast == null) {
