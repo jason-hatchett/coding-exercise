@@ -24,7 +24,7 @@ $(document).ready(function(){
     $('#info').append(table)
     var items = $('tr.item')
     items.hide();
-    items.fadeIn(2000);
+    items.fadeIn(2000).delay(11000).fadeOut(2000);
     
   });
   myPolls.start();
