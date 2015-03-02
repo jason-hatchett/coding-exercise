@@ -14,6 +14,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;     
   text-shadow: 0.1em 0.1em 0.2em black;
+  margin-bottom:30px;
 }
 
 table{

@@ -4,7 +4,9 @@ $(document).ready(function(){
     limit: 5
   },
   function(response){
+    
     $('#info').empty();
+    
     var table = $('<table>');
     for (var i=0; i < 5; i++){
       var name = $('<td class="bandname">').text(response[i].name)
@@ -20,10 +22,10 @@ $(document).ready(function(){
     }
 
     $('#info').append(table)
-    $('#info').hide()
-    $('#info').slideDown( "slow", function() {
-      // Animation complete.
-    });
+    var items = $('tr.item')
+    items.hide();
+    items.fadeIn(2000);
+    
   });
   myPolls.start();
 })
