@@ -9,7 +9,10 @@ h1 {
   font-weight: 300;
   color: lightgray;
   text-transform:capitalize;
-  font-variant:small-caps;     
+  font-variant:small-caps;
+  background-image: -webkit-linear-gradient(white 28%, gray 40%, white 54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;     
   text-shadow: 0.1em 0.1em 0.2em black;
 }
 
