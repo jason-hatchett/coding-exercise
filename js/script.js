@@ -14,12 +14,16 @@ $(document).ready(function(){
       item.append(name)
       item.append(counts)
       item.append(ending)
-      
+
       table.append(item)
 
     }
 
     $('#info').append(table)
+    $('#info').hide()
+    $('#info').slideDown( "slow", function() {
+      // Animation complete.
+    });
   });
   myPolls.start();
 })
